@@ -48,7 +48,7 @@ p {
 
 .bin:hover {
 	background-color: #ededed !important;
-	color: #3c3c3c :important;
+	color: #3c3c3c !important;
 	border: 1px solid #fff !important;
 }
 
@@ -92,18 +92,27 @@ p {
 	width: 100%;
 	padding: 30px 0 30px;
 	margin-top: 00px;
-	background-image: url(../bg3.jpg);
-	background-position: fill fill;
-	background-repeat: no-repeat;
-	background-size: cover;
+	background-image: url(../background2.jpg);
+	background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 	color: #222222;
 }
 
 
 .header img {
-	height: 350px;
-	width: 450px;
-	margin: 70px 0 0 40px;
+	height: 450px;
+	width: 550px;
+	margin: 20px 0 0 40px;
+}
+
+.header .maincontainer {
+	margin-top: 50px;
+}
+
+.header .heading {
+	margin-left: 22px;
 }
 
 .header h1 {
@@ -119,15 +128,33 @@ p {
 	margin-top: 20px;
 }
 
+.header p {
+	font-size: 15px;
+	margin-bottom: 0px;
+}
+
 .header .btn {
-	border-radius: 0;
+	border-radius: 20;
+	padding: 0px 10px 0px 0px;
 	margin: 40px 20px;
+}
+
+.header .view i {
+	background-color: #48a548;
+	padding: 10px 10px 10px 10px;
+	margin-right: 7px;
+}
+
+.header .host i {
+	background-color: #216199;
+	padding: 10px 10px 10px 10px;
+	margin-right: 7px;
 }
 
 @media(max-width: 768px) {
 	.header {
 		padding: 30px;
-		height: 750px; 
+		height: 750px;
 	}
 
 	.header img {
@@ -209,7 +236,7 @@ hr {
 	font-size: 14px !important;
 	text-align: center;
 	text-transform: uppercase;
-	margin: 0 auto; 
+	margin: 0 auto;
 	color: #fff !important;
 	background-color: #08f;
 }
@@ -231,7 +258,7 @@ hr {
 	font-size: 14px !important;
 	text-align: center;
 	text-transform: uppercase;
-	margin: 0 auto; 
+	margin: 0 auto;
 	color: #fff;
 
 }
@@ -240,7 +267,7 @@ hr {
 }
 
 .sessionscontrollernew .header .loginthrough {
-	margin-top: -10px !important; 
+	margin-top: -10px !important;
 }
 
 .sessionscontrollernew .verticalLine {
@@ -282,7 +309,7 @@ hr {
 
 .sessionscontrollernew .header .enter h2 {
 	color: #4c4c4c;
-	margin: 20px 0 20px; 
+	margin: 20px 0 20px;
 }
 
 .sessionscontrollernew .header .enter .input-group {
@@ -473,10 +500,10 @@ hr {
 
 .services {
 	padding: 80px 0 80px;
-	text-align: center; 
+	text-align: center;
 }
 
-.services h2, 
+.services h2,
 .services h4 {
 	color: #4c4c4c;
 	margin: 20px 0 20px;
@@ -485,7 +512,7 @@ hr {
 .services p {
 	color: #737373;
 	font-size: 14px;
-	padding-bottom: 40px; 
+	padding-bottom: 40px;
 }
 
 .services i {
@@ -562,7 +589,7 @@ hr {
 	}
 }
 
-/* Team */ 
+/* Team */
 
 .team {
 	padding: 50px 0 80px;
@@ -667,7 +694,7 @@ hr {
 
 .contact h2 {
 	color: #4c4c4c;
-	margin: 20px 0 20px; 
+	margin: 20px 0 20px;
 }
 
 .contact .input-group {
@@ -707,7 +734,7 @@ hr {
 	font-size: 20px !important;
 }
 
-/* Footer */ 
+/* Footer */
 
 .footer {
 	margin-top: 100px !important;
@@ -738,9 +765,28 @@ hr {
 
 .footer .btn {
 	padding: 10px 5px 10px;
-	margin: -3px 0 0 5px; 
+	margin: -3px 0 0 5px;
 }
 
+.footer .contactus h3 {
+	margin-top: 0px;
+}
+
+.footer .col1,
+.footer .col2 {
+	margin-top: 30px;
+}
+
+.footer .col1 p,
+.footer .col2 p {
+	margin-top: 10px !important;
+	margin-bottom: 20px !important;
+	font-size: 15px;
+}
+.footer hr {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
 /* Everything Ends Here */
 /*
 .pricing .myAnimations {
@@ -997,3 +1043,43 @@ background-color: transparent !important;
 
 /* new users controller new ends here */
 
+/* userscontrollerindex starts here */
+
+
+.userscontrollerindex .back {
+	padding-bottom: 20px;
+}
+
+.userscontrollerindex .collapse .searchbydate {
+	margin: 20px 5px 0px 0px;
+	display: inline-block;
+}
+
+.userscontrollerindex .collapse
+.searchbydate checkbox {
+	padding-top: 20px;
+}
+
+.userscontrollerindex .searchbutton {
+	background-color: #f2f3f4;
+	border-radius: 0px;
+}
+
+.userscontrollerindex .collapse .back {
+	background-color: #f2f3f4;
+}
+
+.userscontrollerindex .collapse .tags,
+.userscontrollerindex .collapse .city {
+	padding: 0px 10px 0px 10px;
+	width: 300px;
+	height: 35px;
+	font-size: 15px;
+}
+
+.userscontrollerindex .collapse span {
+	padding: 0px 10px 0px 10px;
+	height: 35px;
+}
+
+/* userscontrollerindex ends here */

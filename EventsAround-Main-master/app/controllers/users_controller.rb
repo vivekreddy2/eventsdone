@@ -9,10 +9,11 @@ class UsersController < ApplicationController
 
   "This is the page which displays all the users with thier access. This is highly secured and
   confidential anyone entering this can control the 5 elements the universe and everthing that they
-  see inside this program. Lets get to the technical part first it checks if they are using proper 
+  see inside this program. Lets get to the technical part first it checks if they are using proper
   credentials then if the name is ************ then he can do whatevr he wants else it sends them to the
   main page stating an alert"
   def index
+    @user = User.new()
     @users = User.all()
     @have = nil
     if session[:user_id] != nil
@@ -20,10 +21,10 @@ class UsersController < ApplicationController
       if @have.name == "rishikeshwar1@gmail.com" and @have != nil
         render :index
         return
-      else 
+      else
         redirect_to login_path, alert: "You must have admin privilages"
       end
-   else 
+   else
     redirect_to login_path, alert: "You must have admin privilages"
   end
  end
@@ -46,16 +47,16 @@ class UsersController < ApplicationController
   # POST /users.json
 
   "Whenever it reaches 3000/users/new this method will be called if the entered usrname is already taken
-  then an alert is flashed. If everthing passes the credentials are saved. While saving it is again 
-  validated and errors are flashed through flash[:notices] and rendered according to that" 
+  then an alert is flashed. If everthing passes the credentials are saved. While saving it is again
+  validated and errors are flashed through flash[:notices] and rendered according to that"
   def create
     session[:user_id] = nil
     @user = User.new(user_params)
 
     if User.exists?(name: @user.name)
       redirect_to new_user_path , alert: "EmailId already Exists"
-      return 
-    else 
+      return
+    else
       puts "NO"
     end
 

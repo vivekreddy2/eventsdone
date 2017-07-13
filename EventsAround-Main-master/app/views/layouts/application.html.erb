@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="style.css">
 
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
-</head>  
+</head>
     <%= stylesheet_link_tag    'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -17,7 +17,7 @@
   </head>
 
   <!-- Navigation Starts Here -->
-
+<div>
   <div id="myNavbar" class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container wow slideInDown">
       <div class="navbar-header">
@@ -38,7 +38,7 @@
           <% if @have != nil%>
             <li><a>User:  <%= @have.name.split('@').first %></a></li>
             <li><%= link_to 'Profile', user_personalinfos_path(session[:user_id]) %></li>
-            <li> <%= link_to 'Logout',logout_url , method: :delete, data: { confirm: 'Are you sure?' } %></li>
+            <li> <%= link_to 'Logout',logout_url , method: :delete, data: {  confirm: 'Are you sure?' } %></li>
           <% else %>
             <li><a href="/login">Login</a></li>
           <% end %>
@@ -50,7 +50,7 @@
   <!-- Navigation ends here -->
   <div class="applicationhtml">
     <div class="current-user">
-      
+
     </div>
   </div>
 
@@ -59,24 +59,30 @@
   </body>
 
   <!--- Footer Starts Here -->
-  
+
 
   <div id="footer" class="footer">
     <div class="contain">
       <div class="row">
-      <h3><strong>Contact Us</strong></h3>
+      <div class="contactus">
+        <h3><strong>Contact Us</strong></h3>
+      </div>
       <hr>
         <div class="col col-lg-4 col-md-4">
           <h4>Rishikeshwar</h4>
-          <p><i class="fa fa-home" aria-hidden="true"></i> Munnekollala, Marathalli, Bangalore</p>
-          <p><i class="fa fa-envelope" aria-hidden="true"></i> rishikeshwar1@gmail.com</p>
-          <p><i class="fa fa-phone" aria-hidden="true"></i> +91 8087770414</p>
+          <div class="col1">
+            <p><i class="fa fa-home" aria-hidden="true"></i> Munnekollala, Marathalli, Bangalore</p>
+            <p><i class="fa fa-envelope" aria-hidden="true"></i> rishikeshwar1@gmail.com</p>
+            <p><i class="fa fa-phone" aria-hidden="true"></i> +91 8087770414</p>
+          </div>
         </div>
         <div class="col col-lg-4 col-md-4">
           <h4>Vivek</h4>
-          <p><i class="fa fa-home" aria-hidden="true"></i> Room No. 707, Amrita College, Bangalore</p>
-          <p><i class="fa fa-envelope" aria-hidden="true"></i> padigelavivekreddy@gmail.com</p>
-          <p><i class="fa fa-phone" aria-hidden="true"></i> +91 9490455504</p>
+          <div class="col1">
+            <p><i class="fa fa-home" aria-hidden="true"></i> Room No. 707, Amrita College, Bangalore</p>
+            <p><i class="fa fa-envelope" aria-hidden="true"></i> padigelavivekreddy@gmail.com</p>
+            <p><i class="fa fa-phone" aria-hidden="true"></i> +91 9490455504</p>
+          </div>
         </div>
         <div class="col col-lg-4 col-md-4">
           <h4>Stay in touch</h4>
@@ -92,6 +98,7 @@
         </div>
       </div>
     </div>
+  </div>
   </div>
 
   <!--- Footer Ends Here -->
