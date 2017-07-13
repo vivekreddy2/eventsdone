@@ -21,10 +21,10 @@ class UsersController < ApplicationController
         render :index
         return
       else 
-        redirect_to login_path, alert: "You should be logged in as Admin"
+        redirect_to login_path, alert: "You must have admin privilages"
       end
    else 
-    redirect_to login_path, alert: "You should be logged in as Admin"
+    redirect_to login_path, alert: "You must have admin privilages"
   end
  end
 
@@ -52,13 +52,6 @@ class UsersController < ApplicationController
     session[:user_id] = nil
     @user = User.new(user_params)
 
-    "This part is to create a random password to be sent to a newly signed up User"
-    o = [('a'..'z'), ('A'..'Z')].map(&:to_a).flatten
-    string = (0...10).map { o[rand(o.length)] }.join
-    @inipassword = string
-    @user.password = string
-    @user.password_confirmation = string
-
     if User.exists?(name: @user.name)
       redirect_to new_user_path , alert: "EmailId already Exists"
       return 
@@ -66,19 +59,21 @@ class UsersController < ApplicationController
       puts "NO"
     end
 
+    "This part is to create a random password to be sent to a newly signed up User"
+    o = [('a'..'z'), ('A'..'Z')].map(&:to_a).flatten
+    string = (0...10).map { o[rand(o.length)] }.join
+    @inipassword = string
+    @user.password = string
+    @user.password_confirmation = string
 
-    respond_to do |format|
       if @user.save
-
         UserMailer.welcome_email(@user, @inipassword).deliver_now
-        format.html { redirect_to @user, notice: 'User was successfully created and validated' }
-        format.json { render :show, status: :created, location: @user }
-        session[:user_id] = @user.id
+        redirect_to login_path, alert: 'Check your mail box for further information'
+        session[:user_id] = nil
       else
         flash[:notice] = @user.errors.messages
-        format.html { render :new }
+        redirect_to new_user_path
       end
-    end
   end
 
   # PATCH/PUT /users/1

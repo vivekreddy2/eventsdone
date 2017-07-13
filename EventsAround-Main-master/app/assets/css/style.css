@@ -157,7 +157,7 @@ p {
 .sessionscontrollernew .header h2 {
 	font-family: Baskerville,Baskerville Old Face,Hoefler Text,Garamond,Times New Roman,serif !important;
 	color: #3c3c3c;
-	margin-top: 20px;
+	margin-top: 0px;
 	margin-left: 157px;
 	margin-bottom: 0px;
 }
@@ -221,6 +221,17 @@ p {
 .sessionscontrollernew .verticalLine {
   border-left: thick solid #ff0000;
 }
+
+
+/* sessionscontrollernew otherlogins starts */
+
+.sessionscontrollernew .header .otherlogins p {
+	font-size: 100px !important;
+	color: #222222;
+	margin-top: 0px !important;
+}
+
+/* sessions controllernew otherlogin ends */  
 
 /* input boxes starts */
 

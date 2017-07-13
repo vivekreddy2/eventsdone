@@ -10,6 +10,13 @@ end
 gem 'rails', '~> 5.0.2'
 # For sending mails to others
 gem 'mail'
+#For envrionment variables
+gem 'figaro'
+
+#This is for google authentication
+gem "omniauth-google-oauth2", "~> 0.2.1"
+#This is for FB authentication
+gem 'omniauth-facebook'
 # Use mysql as the database for Active Record
 group :production do 
   gem 'pg'
@@ -24,7 +31,6 @@ end
 
 # The Gmail Authentication gem
 gem "omniauth-google-oauth2", "~> 0.2.1"
-gem "omniauth-facebook", "~> 4.0.0"
 
 gem "font-awesome-rails"
 # Use Puma as the app server

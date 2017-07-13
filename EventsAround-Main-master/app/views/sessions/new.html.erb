@@ -26,51 +26,77 @@
   <!-- Navigation ends here -->
 
   <!--- Header starts here -->
-<div class="sessionscontrollernew container" >
-
-  <div id="header" class="header">
+  <div class="newsessionscontrollernew">
     <div class="container">
       <div class="row">
-        <div class="col-lg-6 col-md-6 wow bounceInLeft">
-          <h2>Come join us with</h2><br>
-          <h1>EVENTS AROUND</h1>
-          <div class="row loginthrough">
-            <div class="col-xs-6 text-left">
-              <div class="gmail">
-                <%= link_to " Contunue with Google", "/auth/google_oauth2", name: 'omni', class: 'fa fa-google', aria: {hidden: 'true'}, id: "sign_in" %>
-              </div>  
+        <div class="col-lg-6 col-md-6">
+          <div class="heading">
+            <br>
+            <h2>Come join us with</h2>
+            <br>
+            <h1>EVENTS AROUND</h1>
+            <hr>
+          </div>
+          
+          <div class="textfieldsafterheading">
+            <%= form_tag do %>
+
+              <div class="col-md-1 col-lg-1"></div>
+              <div class="col-md-10 col-lg-10">
+                <div class="notice">
+                  <% if flash[:alert] %>
+                    <p id="notice"><%= flash[:alert] %></p>
+                  <% end %>
+                </div>
+              </div>
+              <div class="col-md-1 col-lg-1"></div>
+
+              <div class="input-group input-group-lg wow fadeInUp" data-wow-delay="0.8s" style="margin-top: 10px;">
+                <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-user-circle" aria-hidden="true" ></i></span>
+                <%= text_field_tag(:name, params[:name], class: 'form-control', area: {describedby: 'sizing-addon1'}, placeholder: 'Username') %>
+              </div>
+              <div class="input-group input-group-lg wow fadeInUp" data-wow-delay="0.8s">
+                  <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-key " aria-hidden="true" ></i></span>
+                  <%= password_field_tag(:password, params[:password], class: 'form-control', area: {describedby: 'sizing-addon1'}, placeholder: 'Password') %>
+              </div>
+              <div class="col-lg-7 col-md-7">
+                <div class="rememberme">
+                  <label>
+                    <%= check_box_tag(:DepartmentCSE, params[:DepartmentCSE], class: 'checkbox')%> Keep me logged in
+                  </label>
+                </div>
+              </div>
+              <div class="col-lg-5 col-md-5">
+              <div class="buttonlogin">
+                <button class="btn btn-lg btn-primary wow fadeInUp pull-left" data-wow-delay="1s"><i class="fa fa-sign-in " aria-hidden="true" ></i>Login</button>
+              </div>
+              </div>
+            <% end %>
+          </div>
+          <br>
+          <br>
+          <br><br>
+
+          <div class="col-md-1 col-lg-1"></div>
+          <div class="col-md-10 col-lg-10"><hr></div>
+          <div class="col-md-1 col-lg-1"></div>
+          <div class="otherways">
+            <div class="head">
+              <h2>Or Connect Using</h2>
             </div>
-            <div class="col-xs-6 text-right">
-              <div class="facebook">
-              <%= link_to " Contunue with Facebook", "/auth/facebook", name: 'omni', class: 'fa fa-facebook', aria: {hidden: 'true'}, id: "sign_in" %>
+            <div class="col-lg-6 col-md-6">
+              <div class="googlelogin">
+                <%= link_to "<i class='fa fa-google-plus' aria-hidden='true'></i> Google".html_safe, "/auth/google_oauth2", :id => "sign_in", :class => "button" %><br>
+              </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6">
+              <div class="facebooklogin">
+                <%= link_to "<i class='fa fa-facebook' aria-hidden='true'></i> Facebook".html_safe, "/auth/facebook", :id => "sign_in", :class => "button" %>
               </div>
             </div>
           </div>
-          <hr>
-          <%= form_tag do %>
-			<fieldset>
-          		<div class="enter">
-          			<div class="notice">
-          				<% if flash[:alert] %>
-							<p id="notice"><%= flash[:alert] %></p>
-						<% end %>
-					</div>
-            		<div class="input-group input-group-lg wow fadeInUp" data-wow-delay="0.8s">
-
-						<span class="input-group-addon" id="sizing-addon1"><i class="fa fa-user-circle" aria-hidden="true" ></i></span>
-
-              			<%= text_field_tag(:name, params[:name], class: 'form-control', area: {describedby: 'sizing-addon1'}, placeholder: 'Username') %>
-              	</div>
-             		<div class="input-group input-group-lg wow fadeInUp" data-wow-delay="0.8s">
-              			<span class="input-group-addon" id="sizing-addon1"><i class="fa fa-key " aria-hidden="true" ></i></span>
-              			<%= password_field_tag(:password, params[:password], class: 'form-control', area: {describedby: 'sizing-addon1'}, placeholder: 'Password') %>
-                </div>
-            		<div class="buttonlogin">
-           				<button class="btn btn-lg btn-primary wow fadeInUp" data-wow-delay="1s" name="login"><i class="fa fa-sign-in " aria-hidden="true" ></i>Login</button>
-            		</div>
-          		</div>	
-          	</fieldset>
-		  <% end %>
+          
         </div>
         <div class="col-lg-6 col-md-6 wow bounceInRight">
           <img src="devices.jpg" alt="">
@@ -78,7 +104,6 @@
       </div>
     </div>
   </div>
-</div>
   <!-- Header ends here -->
 
 
@@ -92,3 +117,6 @@
     </script>
     <script src="js/bootstrap.min.js"></script>
   </body>
+
+
+  

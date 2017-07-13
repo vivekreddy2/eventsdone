@@ -11,10 +11,13 @@ class SessionsController < ApplicationController
   "This method is called when a new user wants to login first it checks if the user exists by the provided
   name if not the page is again redirect else it goes inside the user authentication is also taken care of"
   def create
-   
-      @user = User.from_omniauth(env["omniauth.auth"])
-      session[:user_id] = user.id
-      redirect_to root_url
+  	@user = User.find_by(name: params[:name])
+  	if @user and @user.authenticate(params[:password])
+  		session[:user_id] = @user.id
+  		redirect_to root_url
+  	else 
+  		redirect_to login_url, alert:"Invalid Username or Password"
+  	end
   end
 
 
@@ -23,5 +26,19 @@ class SessionsController < ApplicationController
   def destroy
   	session[:user_id] = nil
   	redirect_to login_url, alert: "Successfull"
+  end
+
+   def creategoogle
+    puts "comingpleasecoming"
+    user = User.from_omniauth(env["omniauth.auth"])
+    
+    localuser = User.find_by(name: user.name)
+    session[:user_id] = localuser.id
+    redirect_to root_path
+  end
+
+  def destroygoogle
+    session[:user_id] = nil
+    redirect_to root_path
   end
 end

@@ -1,9 +1,11 @@
 class PersonalinfosController < ApplicationController
 
 	def index 
+		puts "\n\n\n index \n\n\n"
 		@user = User.find(session[:user_id])
 		@personalinfo = Personalinfo.new
 		render :index
+
 	end
 
 	def new
